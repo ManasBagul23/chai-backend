@@ -8,5 +8,11 @@ class ApiResponse {
         if (statusCode < 200 || statusCode >= 300) {
             throw new Error("Invalid status code for a successful response");
         }
+
+        return res.status(201).json(
+            new ApiResponse(201, data, "Resource created successfully")
+        )
     }
 }
+
+export { ApiResponse }
